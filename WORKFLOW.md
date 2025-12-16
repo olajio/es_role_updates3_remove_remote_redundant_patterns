@@ -16,7 +16,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 │  │ Remote Clusters │  │   CCS Cluster   │  │ Inject Patterns │              │
 │  │  • prod         │  │  • url          │  │  • partial-*    │              │
 │  │  • qa           │  │  • kibana_url   │  │  • restored-*   │              │
-│  │  • dev          │  │  • api_key      │  │  • elastic-*    │              │
+│  │  • dev          │  │  • api_key      │  │                 │              │
 │  └─────────────────┘  └─────────────────┘  └─────────────────┘              │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
@@ -27,10 +27,10 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 │                               │     │                                       │
 │  1. Add inject patterns       │     │  1. Add inject patterns               │
 │  2. Cleanup subset patterns   │     │  2. Sync patterns from remotes        │
-│  3. Update via API            │     │  3. Cleanup subset patterns           │
+│  3. Update Role               │     │  3. Cleanup subset patterns           │
 │                               │     │  4. Remove remote patterns            │
 │                               │     │  5. Update Kibana privileges          │
-│                               │     │  6. Update via API                    │
+│                               │     │  6. Update Role                       │
 └───────────────────────────────┘     └───────────────────────────────────────┘
 ```
 
@@ -131,7 +131,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 │  Remote Cluster Patterns  │   │  STEP 1: Add Inject Patterns  │
 │  ┌─────────────────────┐  │   │  + partial-*                  │
 │  │ prod: filebeat-*    │  │   │  + restored-*                 │
-│  │       metricbeat-*  │  │   │  + elastic-cloud-logs-*       │
+│  │       metricbeat-*  │  │   │                               │
 │  │       apm-*         │  │   └───────────────┬───────────────┘
 │  │                     │  │                   │
 │  │ qa:   filebeat-*    │  │                   │
@@ -157,7 +157,6 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
                     │  │ apm-*           │◄─┼── SYNCED
                     │  │ partial-*       │  │
                     │  │ restored-*      │  │
-                    │  │ elastic-cloud-* │  │
                     │  │ prod:filebeat-* │  │
                     │  │ qa:metricbeat-* │  │
                     │  │ *:logs-*        │  │
@@ -167,7 +166,6 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
                                 ▼
               ┌─────────────────────────────────┐
               │ STEP 3: Cleanup Subset Patterns │
-              │ (No subsets in this example)    │
               └───────────────┬─────────────────┘
                               │
                               ▼
@@ -207,7 +205,6 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
                               ▼
                     ┌───────────────────────┐
                     │  STEP 6: Update Role  │
-                    │  PUT /_security/role  │
                     └───────────────────────┘
 ```
 
