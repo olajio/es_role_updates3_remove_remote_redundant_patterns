@@ -215,7 +215,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   KIBANA PRIVILEGE UPDATE FLOW                    │
+│                   KIBANA PRIVILEGE UPDATE FLOW                   │
 └──────────────────────────────────────────────────────────────────┘
 
                     ┌───────────────────────┐
@@ -272,7 +272,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  SUBSET PATTERN DETECTION LOGIC                   │
+│                  SUBSET PATTERN DETECTION LOGIC                  │
 └──────────────────────────────────────────────────────────────────┘
 
   Pattern A: "apm-*"              Pattern B: "apm*"
@@ -324,7 +324,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  REMOTE PATTERN REMOVAL LOGIC                     │
+│                  REMOTE PATTERN REMOVAL LOGIC                    │
 └──────────────────────────────────────────────────────────────────┘
 
   Remote Pattern: "prod:filebeat-*"
