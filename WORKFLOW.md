@@ -6,25 +6,25 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         ELASTICSEARCH ROLE AUTO-UPDATER                      │
+│                         ELASTICSEARCH ROLE AUTO-UPDATER                     │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              CONFIGURATION                                   │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐             │
-│  │ Remote Clusters │  │   CCS Cluster   │  │ Inject Patterns │             │
-│  │  • prod         │  │  • url          │  │  • partial-*    │             │
-│  │  • qa           │  │  • kibana_url   │  │  • restored-*   │             │
-│  │  • dev          │  │  • api_key      │  │  • elastic-*    │             │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘             │
+│                              CONFIGURATION                                  │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐              │
+│  │ Remote Clusters │  │   CCS Cluster   │  │ Inject Patterns │              │
+│  │  • prod         │  │  • url          │  │  • partial-*    │              │
+│  │  • qa           │  │  • kibana_url   │  │  • restored-*   │              │
+│  │  • dev          │  │  • api_key      │  │  • elastic-*    │              │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘              │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                     ┌─────────────────┴─────────────────┐
                     ▼                                   ▼
 ┌───────────────────────────────┐     ┌───────────────────────────────────────┐
-│       REMOTE CLUSTERS         │     │            CCS CLUSTER                 │
-│                               │     │                                        │
+│       REMOTE CLUSTERS         │     │            CCS CLUSTER                │
+│                               │     │                                       │
 │  1. Add inject patterns       │     │  1. Add inject patterns               │
 │  2. Cleanup subset patterns   │     │  2. Sync patterns from remotes        │
 │  3. Update via API            │     │  3. Cleanup subset patterns           │
@@ -38,7 +38,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    REMOTE CLUSTER UPDATE FLOW                     │
+│                    REMOTE CLUSTER UPDATE FLOW                    │
 └──────────────────────────────────────────────────────────────────┘
 
                          ┌─────────────┐
@@ -78,7 +78,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
                                 │
                                 ▼
               ┌─────────────────────────────────┐
-              │  STEP 2: Cleanup Subset Patterns │
+              │ STEP 2: Cleanup Subset Patterns │
               │                                 │
               │  apm-* is subset of apm*        │
               │  → Remove apm-*                 │
@@ -107,7 +107,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     CCS CLUSTER UPDATE FLOW                       │
+│                     CCS CLUSTER UPDATE FLOW                      │
 └──────────────────────────────────────────────────────────────────┘
 
                          ┌─────────────┐
@@ -166,8 +166,8 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
                                 │
                                 ▼
               ┌─────────────────────────────────┐
-              │  STEP 3: Cleanup Subset Patterns │
-              │  (No subsets in this example)   │
+              │ STEP 3: Cleanup Subset Patterns │
+              │ (No subsets in this example)    │
               └───────────────┬─────────────────┘
                               │
                               ▼
@@ -419,7 +419,7 @@ Visual representation of the Elasticsearch Role Auto-Updater workflow.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    ROLE UPDATE DECISION TREE                      │
+│                    ROLE UPDATE DECISION TREE                     │
 └──────────────────────────────────────────────────────────────────┘
 
                          ┌─────────────┐
