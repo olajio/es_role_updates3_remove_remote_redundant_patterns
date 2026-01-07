@@ -309,7 +309,3 @@ Check your cluster URLs and network connectivity. The script uses a 30-second ti
 ### SSL Certificate Errors
 
 Set `verify_ssl: false` in the config for self-signed certificates.
-
-## License
-
-Internal use only.
